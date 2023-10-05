@@ -1,0 +1,37 @@
+#include <iostream>
+
+// Define a Character class
+class Character {
+public:
+    float x, y, z; // Position
+    float speed;  // Movement speed
+
+    // Constructor to initialize the character
+    Character(float startX, float startY, float startZ, float startSpeed) {
+        x = startX;
+        y = startY;
+        z = startZ;
+        speed = startSpeed;
+    }
+
+    // Function to handle character movement
+    void Move(float deltaX, float deltaY, float deltaZ) {
+        x += deltaX * speed;
+        y += deltaY * speed;
+        z += deltaZ * speed;
+    }
+};
+
+int main() {
+    // Create a character with an initial position and speed
+    Character playerCharacter(0.0f, 0.0f, 0.0f, 1.0f);
+
+    // Simulate character movement
+    playerCharacter.Move(1.0f, 0.0f, 0.0f); // Move right
+    playerCharacter.Move(0.0f, 1.0f, 0.0f); // Move up
+
+    // Print the final position
+    std::cout << "Final position: (" << playerCharacter.x << ", " << playerCharacter.y << ", " << playerCharacter.z << ")" << std::endl;
+
+    return 0;
+}
